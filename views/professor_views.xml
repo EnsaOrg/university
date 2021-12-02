@@ -32,7 +32,14 @@
             <field name="address"/>
             <field name="email"/>
             <field name="phone"/>
+            <field name="department_id"/>
+            <field name="subject_id"/>
           </group>
+          <notebook>
+            <page string="List of classrooms">
+              <field name="classroom_ids"/>
+            </page>
+          </notebook>
         </form>
       </field>
     </record>

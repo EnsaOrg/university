@@ -29,6 +29,7 @@
         'views/department_views.xml',
         'views/professor_views.xml',
         'views/subject_views.xml',
+        'views/classroom_views.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

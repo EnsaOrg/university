@@ -30,6 +30,8 @@
             <field name="address"/>
             <field name="email"/>
             <field name="phone"/>
+            <field name="department_id"/>
+            <field name="classroom_id"/>
           </group>
         </form>
       </field>
