@@ -31,3 +31,24 @@ class UniversityProfessor(models.Model):
                result.append((prof.id, name))
 
           return result
+
+     @api.multi
+     def send_mail(self):
+          self.ensure_one()
+          template_id = self.env.ref('university.email_template_prof').id
+          ctx = {
+               'default_model': 'university.professor',
+               'default_res_id': self.id,
+               'default_use_template': bool(template_id),
+               'default_template_id': template_id,
+               'default_composition_mode': 'comment',
+               'email_to': self.email,
+          }
+          return {
+               'type': 'ir.actions.act_window',
+               'view_type': 'form',
+               'view_mode': 'form',
+               'res_model': 'mail.compose.message',
+               'target': 'new',
+               'context': ctx,
+          }
