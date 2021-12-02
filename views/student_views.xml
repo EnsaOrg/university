@@ -10,6 +10,7 @@
           <field name="l_name"/>
           <field name="sexe"/>
           <field name="birthday"/>
+          <field name="address"/>
           <field name="registration_date"/>
         </tree>
       </field>
@@ -31,15 +32,16 @@
               <field name="f_name"/>
             <field name="l_name"/>
             <field name="sexe"/>
+            <field name="identity_card"/>
             <field name="birthday"/>
             </group>
             <group>
-              <field name="registration_date"/>
+              <field name="registration_date" attrs="{'readonly': [('state', '==', 'L1|''')]}"/>
               <field name="address"/>
               <field name="email"/>
-              <field name="phone"/>
+              <field name="phone" attrs="{'invisible':[('department_id', '!=', False)]}"/>
               <field name="department_id"/>
-              <field name="classroom_id"/>
+              <field name="classroom_id" attrs="{'required':[('department_id', '!=', False)]}"/>
             </group>
           </group>
           <notebook>
