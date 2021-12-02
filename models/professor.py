@@ -20,3 +20,13 @@ class UniversityProfessor(models.Model):
                                       relation='prof_class_rel',
                                       column1='f_name',
                                       column2='name')
+
+     @api.multi
+     def name_get(self):
+          result = []
+          for prof in self:
+               #il est important de caster en string, car dès fois prof.department_id.name est NULL et ça returne false
+               name = '[' + str(prof.department_id.name) + '] ' + prof.f_name + ' ' + prof.l_name
+               result.append((prof.id, name))
+
+          return result

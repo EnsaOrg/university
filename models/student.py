@@ -17,3 +17,12 @@ class UniversityStudent(models.Model):
 
      department_id = fields.Many2one(comodel_name='university.department')
      classroom_id = fields.Many2one(comodel_name='university.classroom')
+
+     @api.multi
+     def name_get(self):
+          result = []
+          for student in self:
+               name = '[' + str(student.classroom_id.classroom_name) + '] ' + student.f_name + ' ' + student.l_name
+               result.append((student.id, name))
+
+          return result

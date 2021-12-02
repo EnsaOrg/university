@@ -2,6 +2,7 @@ from odoo import models, fields, api
 
 class UniversityClassroom(models.Model):
      _name = 'university.classroom'
+     _rec_name = 'classroom_name'
 
      classroom_name = fields.Char(string='name')
      code = fields.Char()
