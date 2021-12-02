@@ -33,6 +33,11 @@
             <field name="department_id"/>
             <field name="classroom_id"/>
           </group>
+          <notebook>
+            <page string="List of subjects">
+              <field name="subject_ids"/>
+            </page>
+          </notebook>
         </form>
       </field>
     </record>

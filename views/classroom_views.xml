@@ -19,15 +19,17 @@
       <field name="arch" type="xml">
         <form>
           <group>
-            <field name="classroom_name"/>
-            <field name="code"/>
+            <group>
+              <field name="classroom_name"/>
+              <field name="code"/>
+            </group>
           </group>
           <notebook>
             <page string="List of professors">
               <field name="professor_ids"/>
             </page>
             <page string="List of subjects">
-              <field name="professor_ids"/>
+              <field name="subject_ids"/>
             </page>
             <page string="List of students">
               <field name="student_ids"/>

@@ -18,6 +18,8 @@ class UniversityStudent(models.Model):
      department_id = fields.Many2one(comodel_name='university.department')
      classroom_id = fields.Many2one(comodel_name='university.classroom')
 
+     subject_ids = fields.Many2many(related='classroom_id.subject_ids')
+
      @api.multi
      def name_get(self):
           result = []

@@ -17,3 +17,17 @@ class UniversityClassroom(models.Model):
                                       relation='class_sub_rel',
                                       column1='classroom_name',
                                       column2='name')
+
+     num_prof = fields.Integer(String="Number of Professors", compute='comp_prof')
+     num_sub = fields.Integer(String="Number of Subjects", compute='comp_sub')
+     num_stu = fields.Integer(String="Number of Students", compute='comp_stu')
+
+     def comp_prof(self):
+         self.num_prof = len(self.professor_ids)
+
+     def comp_sub(self):
+         self.num_sub = len(self.subject_ids)
+
+     def comp_stu(self):
+         self.num_stu = len(self.student_ids)
+
