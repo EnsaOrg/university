@@ -22,6 +22,13 @@
       <field name="model">university.professor</field>
       <field name="arch" type="xml">
         <form>
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+              <button string="Send email" icon="fa fa-envelope" class="oe_stat-button"/>
+              <button class="oe_sat_button" name="toggle_active" type="object" icon="fa-archive">
+                <field name="active" widget="boolean_button"/>
+              </button>
+            </div>
           <group>
             <field name="f_name"/>
             <field name="l_name"/>
@@ -40,6 +47,7 @@
               <field name="classroom_ids"/>
             </page>
           </notebook>
+          </sheet>
         </form>
       </field>
     </record>

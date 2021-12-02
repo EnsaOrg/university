@@ -12,6 +12,7 @@ class UniversityProfessor(models.Model):
      start_date = fields.Date('Start date')
      email = fields.Char()
      phone = fields.Char()
+     active = fields.Boolean()
 
      department_id = fields.Many2one(comodel_name='university.department')
      subject_id = fields.Many2one(comodel_name='university.subject')
@@ -26,7 +27,7 @@ class UniversityProfessor(models.Model):
           result = []
           for prof in self:
                #il est important de caster en string, car dès fois prof.department_id.name est NULL et ça returne false
-               name = '[' + str(prof.department_id.name) + '] ' + prof.f_name + ' ' + prof.l_name
+               name = '[' + str(prof.department_id.name) + '] ' + str(prof.f_name) + ' ' + str(prof.l_name)
                result.append((prof.id, name))
 
           return result
