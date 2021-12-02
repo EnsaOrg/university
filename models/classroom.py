@@ -31,3 +31,11 @@ class UniversityClassroom(models.Model):
      def comp_stu(self):
          self.num_stu = len(self.student_ids)
 
+     @api.onchange('subject_ids')
+     def check_number_of_subjects(self):
+         if len(self.subject_ids) > 3:
+             return {'warning': {'title': 'warning',
+                                 'message': 'The number of subjects must be less than 3'}}
+
+
+

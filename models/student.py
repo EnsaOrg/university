@@ -28,3 +28,9 @@ class UniversityStudent(models.Model):
                result.append((student.id, name))
 
           return result
+
+     @api.one
+     @api.constrains('registration_date','birthday')
+     def check_dates(self):
+          if self.birthday > self.registration_date:
+               raise ValueError('The birthday must be inferior than the registration date')
